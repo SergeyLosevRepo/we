@@ -13,8 +13,16 @@ public class Subsequence {
      * @return <code>true</code> if possible, otherwise <code>false</code>
      */
     @SuppressWarnings("rawtypes")
-    public boolean find(List x, List y) {
+    public boolean find(List x, List y){
         // TODO: Implement the logic here
+        if (x == null || y == null) {throw new IllegalArgumentException();}
+        if (x.isEmpty()) {return true;}
+        if (x.size() > y.size()){ return false;}
+        int i = 0;
+        for (Object o : y){
+            if (x.get(i).equals(o) && i < x.size()){ i += 1;}
+            if (i == x.size()) {return true;}
+        }
         return false;
     }
 }
